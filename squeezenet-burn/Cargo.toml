@@ -6,7 +6,7 @@ version = "0.1.0"
 edition = "2021"
 
 [features]
-default = ["weights_file", "weights_file_dump"]
+default = ["rebuild", "weights_file"]
 
 # Enables Half precision (f16) support
 weights_f16 = []
@@ -17,9 +17,8 @@ weights_embedded = []
 # Use weights from a file
 weights_file = ["burn/default"]
 
-# Copy weights file to specif folder
-weights_file_dump = []
-
+# Refresh model
+rebuild = ["burn-import"]
 
 [dependencies]
 
@@ -34,9 +33,8 @@ serde = { version = "1.0.183", default-features = false, features = [
 
 [dev-dependencies]
 # Used by the classify example
-burn = { version = "0.13.0", features = ["ndarray"]  }
+burn = { version = "0.13.0", features = ["ndarray"] }
 image = { version = "0.24.7", features = ["png", "jpeg"] }
 
 [build-dependencies]
-# Used to generate code from ONNX model
-burn-import = { version = "0.13.2", package = "burn-import" }
+burn-import = { version = "0.13.2", package = "burn-import", optional = true }

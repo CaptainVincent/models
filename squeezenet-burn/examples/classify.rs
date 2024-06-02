@@ -65,7 +65,7 @@ fn main() {
 
     #[cfg(feature = "weights_embedded")]
     // Load model from embedded weights
-    let model = Model::<Backend>::from_embedded();
+    let model = Model::<Backend>::from_embedded(&device);
 
     // Run the model
     let output = model.forward(normalized_image);
