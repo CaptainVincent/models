@@ -23,7 +23,7 @@ rebuild = ["burn-import"]
 [dependencies]
 
 # Note: default-features = false is needed to disable std
-burn = { version = "0.13.0", default-features = false }
+burn = { git = "https://github.com/p1-0tr/burn.git", branch = "ps-dynamic-libwebgpu" }
 
 # Used to load weights from a file
 serde = { version = "1.0.183", default-features = false, features = [
@@ -33,7 +33,9 @@ serde = { version = "1.0.183", default-features = false, features = [
 
 [dev-dependencies]
 # Used by the classify example
-burn = { version = "0.13.0", features = ["ndarray"] }
+burn = { git = "https://github.com/p1-0tr/burn.git", branch = "ps-dynamic-libwebgpu", features = [
+    "wgpu",
+] }
 image = { version = "0.24.7", features = ["png", "jpeg"] }
 
 [build-dependencies]
